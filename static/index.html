@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MumzSafe — Pediatric Product Safety Checker</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF7F2;
+      --warm-white: #FFFCF8;
+      --dusty-rose: #E8C4B8;
+      --terracotta: #C4714A;
+      --deep: #2C1810;
+      --mid: #6B4535;
+      --safe-green: #4A7C59;
+      --unsafe-red: #B84A4A;
+      --consult-amber: #B8853A;
+      --insufficient: #6B6B8A;
+      --border: rgba(44,24,16,0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--cream);
+      color: var(--deep);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* Decorative background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,196,184,0.3) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      margin-bottom: 48px;
+    }
+
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      color: var(--terracotta);
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: var(--mid);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 12px rgba(44,24,16,0.06);
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: var(--mid);
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    input, textarea {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--deep);
+      transition: border-color 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--terracotta);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(44,24,16,0.3);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: rgba(44,24,16,0.45);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--terracotta);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      letter-spacing: 0.01em;
+    }
+
+    .btn:hover { background: var(--mid); }
+    .btn:active { transform: scale(0.99); }
+    .btn:disabled { background: rgba(44,24,16,0.2); cursor: not-allowed; }
+
+    /* Result card */
+    #result { display: none; }
+
+    .verdict-banner {
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .verdict-banner.safe     { background: rgba(74,124,89,0.1);  border-left: 4px solid var(--safe-green); }
+    .verdict-banner.unsafe   { background: rgba(184,74,74,0.1);  border-left: 4px solid var(--unsafe-red); }
+    .verdict-banner.consult_doctor { background: rgba(184,133,58,0.1); border-left: 4px solid var(--consult-amber); }
+    .verdict-banner.insufficient_data { background: rgba(107,107,138,0.1); border-left: 4px solid var(--insufficient); }
+
+    .verdict-icon { font-size: 1.8rem; }
+
+    .verdict-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+    }
+
+    .verdict-label.safe     { color: var(--safe-green); }
+    .verdict-label.unsafe   { color: var(--unsafe-red); }
+    .verdict-label.consult_doctor { color: var(--consult-amber); }
+    .verdict-label.insufficient_data { color: var(--insufficient); }
+
+    .confidence-bar-wrap {
+      margin-bottom: 16px;
+    }
+
+    .confidence-label {
+      font-size: 0.75rem;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .confidence-bar-bg {
+      height: 6px;
+      background: var(--border);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .confidence-bar-fill {
+      height: 100%;
+      background: var(--terracotta);
+      border-radius: 99px;
+      transition: width 0.6s ease;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .reasoning-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: var(--deep);
+      margin-bottom: 20px;
+    }
+
+    .warnings-list {
+      list-style: none;
+      margin-bottom: 20px;
+    }
+
+    .warnings-list li {
+      font-size: 0.9rem;
+      padding: 8px 12px;
+      background: rgba(184,74,74,0.07);
+      border-radius: 6px;
+      color: var(--unsafe-red);
+      margin-bottom: 6px;
+    }
+
+    .warnings-list li::before {
+      content: '⚠ ';
+    }
+
+    .doctor-flag-banner {
+      background: rgba(184,133,58,0.12);
+      border: 1px solid rgba(184,133,58,0.3);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      color: var(--consult-amber);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* Arabic section */
+    .arabic-section {
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+      direction: rtl;
+    }
+
+    .arabic-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      direction: ltr;
+    }
+
+    .arabic-verdict {
+      font-family: 'Noto Naskh Arabic', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .arabic-reasoning {
+      font-family: 'Noto Naskh Arabic', serif;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--deep);
+      margin-bottom: 14px;
+    }
+
+    .arabic-warnings {
+      list-style: none;
+    }
+
+    .arabic-warnings li {
+      font-family: 'Noto Naskh Arabic', serif;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      background: rgba(184,74,74,0.07);
+      border-radius: 6px;
+      color: var(--unsafe-red);
+      margin-bottom: 6px;
+    }
+
+    /* Loading state */
+    .loading {
+      text-align: center;
+      padding: 32px;
+      color: var(--mid);
+      font-size: 0.9rem;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid var(--border);
+      border-top-color: var(--terracotta);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .error-msg {
+      background: rgba(184,74,74,0.1);
+      border-left: 4px solid var(--unsafe-red);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: var(--unsafe-red);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 520px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">MumzSafe</div>
+      <div class="tagline">Pediatric Product Safety Checker</div>
+    </header>
+
+    <div class="card">
+      <div class="card-title">Child Profile</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="age">Age (months)</label>
+          <input type="number" id="age" min="0" max="216" placeholder="e.g. 6" />
+        </div>
+        <div class="form-group">
+          <label for="allergies">Allergies</label>
+          <input type="text" id="allergies" placeholder="fragrance, nuts (comma-separated)" />
+        </div>
+        <div class="form-group full">
+          <label for="conditions">Medical Conditions</label>
+          <input type="text" id="conditions" placeholder="eczema, asthma (comma-separated)" />
+        </div>
+      </div>
+
+      <div class="card-title" style="margin-top: 8px;">Your Question</div>
+      <div class="form-group" style="margin-bottom: 20px;">
+        <textarea id="question" placeholder="Is Mustela Baby Hydra Bebe lotion safe for my baby with eczema?"></textarea>
+        <span class="hint">Include the product name in your question for best results.</span>
+      </div>
+
+      <button class="btn" id="submit-btn" onclick="runCheck()">Check Safety</button>
+    </div>
+
+    <div class="card" id="result"></div>
+  </div>
+
+  <script>
+    const VERDICT_ICONS = {
+      safe: '✅',
+      unsafe: '🚫',
+      consult_doctor: '⚠️',
+      insufficient_data: '❓'
+    };
+
+    const VERDICT_LABELS_EN = {
+      safe: 'Safe',
+      unsafe: 'Unsafe',
+      consult_doctor: 'Consult a Doctor',
+      insufficient_data: 'Insufficient Data'
+    };
+
+    function splitCSV(val) {
+      return val.split(',').map(s => s.trim()).filter(Boolean);
+    }
+
+    async function runCheck() {
+      const age = parseInt(document.getElementById('age').value);
+      const allergies = splitCSV(document.getElementById('allergies').value);
+      const conditions = splitCSV(document.getElementById('conditions').value);
+      const question = document.getElementById('question').value.trim();
+
+      if (!age || age < 0) return alert('Please enter a valid age in months.');
+      if (!question) return alert('Please enter your question.');
+
+      const resultEl = document.getElementById('result');
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      resultEl.style.display = 'block';
+      resultEl.innerHTML = `
+        <div class="loading">
+          <div class="spinner"></div>
+          Checking safety — this may take 15–30 seconds…
+        </div>`;
+
+      try {
+        const res = await fetch('/check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            age_months: age,
+            allergies,
+            medical_conditions: conditions,
+            question
+          })
+        });
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || 'Server error');
+        }
+
+        const data = await res.json();
+        renderResult(data, resultEl);
+      } catch (e) {
+        resultEl.innerHTML = `<div class="error-msg">Error: ${e.message}</div>`;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    function renderResult(data, el) {
+      const en = data.english;
+      const ar = data.arabic;
+      const v = en.verdict;
+      const pct = Math.round(en.confidence * 100);
+
+      const warningsHTML = en.warnings.length
+        ? `<div class="section-label">Warnings</div>
+           <ul class="warnings-list">${en.warnings.map(w => `<li>${w}</li>`).join('')}</ul>`
+        : '';
+
+      const arWarningsHTML = ar.warnings && ar.warnings.length
+        ? `<ul class="arabic-warnings">${ar.warnings.map(w => `<li>${w}</li>`).join('')}</ul>`
+        : '';
+
+      const doctorBanner = en.doctor_flag
+        ? `<div class="doctor-flag-banner">👨‍⚕️ Please consult a pediatrician before using this product.</div>`
+        : '';
+
+      el.innerHTML = `
+        <div class="verdict-banner ${v}">
+          <span class="verdict-icon">${VERDICT_ICONS[v] || '❓'}</span>
+          <span class="verdict-label ${v}">${VERDICT_LABELS_EN[v] || v}</span>
+        </div>
+
+        <div class="confidence-bar-wrap">
+          <div class="confidence-label">Confidence: ${pct}%</div>
+          <div class="confidence-bar-bg">
+            <div class="confidence-bar-fill" style="width: ${pct}%"></div>
+          </div>
+        </div>
+
+        <div class="section-label">Product</div>
+        <div class="reasoning-text" style="margin-bottom:12px;font-weight:500;">${en.product_name}</div>
+
+        <div class="section-label">Reasoning</div>
+        <div class="reasoning-text">${en.reasoning}</div>
+
+        ${warningsHTML}
+        ${doctorBanner}
+
+        <div class="arabic-section">
+          <div class="arabic-label">Arabic / عربي</div>
+          <div class="arabic-verdict ${v}">${ar.verdict}</div>
+          <div class="arabic-reasoning">${ar.reasoning}</div>
+          ${arWarningsHTML}
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

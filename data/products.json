@@ -1,0 +1,564 @@
+[
+  {
+    "id": "P001",
+    "product_name": "Fisher-Price Deluxe Baby Bouncer",
+    "category": "Furniture",
+    "description": "Infant bouncer seat with calming vibrations and toy bar",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 6
+    },
+    "weight_limit_kg": 9,
+    "safety_certifications": [
+      "ASTM F2167",
+      "CPSC compliant"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "BPA-free",
+      "phthalate-free"
+    ],
+    "doctor_consult_flags": [
+      "not suitable for infants with reflux without medical advice",
+      "not for unsupervised sleep"
+    ],
+    "contraindications": [
+      "reflux",
+      "flat head syndrome without medical guidance"
+    ]
+  },
+  {
+    "id": "P002",
+    "product_name": "Graco 4Ever DLX 4-in-1 Car Seat",
+    "category": "Travel",
+    "description": "Convertible car seat from infant to booster",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 120
+    },
+    "weight_limit_kg": 54,
+    "safety_certifications": [
+      "FMVSS 213",
+      "ASTM F1292"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "flame retardant free"
+    ],
+    "doctor_consult_flags": [
+      "consult pediatrician for premature infants under 2.3kg"
+    ],
+    "contraindications": [
+      "premature infants under 2.3kg without medical clearance"
+    ]
+  },
+  {
+    "id": "P003",
+    "product_name": "Mustela Baby Hydra Bebe Body Lotion",
+    "category": "Skincare",
+    "description": "Daily moisturizing body lotion for newborns and babies",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 36
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "dermatologist tested",
+      "hypoallergenic"
+    ],
+    "allergen_warnings": [
+      "contains avocado perseose",
+      "contains sunflower oil"
+    ],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "paraben-free",
+      "phenoxyethanol-free"
+    ],
+    "doctor_consult_flags": [
+      "consult doctor if child has eczema or severe skin conditions",
+      "patch test recommended for sensitive skin"
+    ],
+    "contraindications": [
+      "known avocado allergy",
+      "known sunflower allergy"
+    ]
+  },
+  {
+    "id": "P004",
+    "product_name": "LEGO DUPLO Classic Brick Box",
+    "category": "Toys",
+    "description": "Large DUPLO bricks for early learning and creative play",
+    "age_range": {
+      "min_months": 18,
+      "max_months": 60
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "EN71",
+      "ASTM F963",
+      "CE certified"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "BPA-free",
+      "phthalate-free",
+      "ABS plastic"
+    ],
+    "doctor_consult_flags": [],
+    "contraindications": [
+      "not suitable for children under 18 months due to brick size"
+    ]
+  },
+  {
+    "id": "P005",
+    "product_name": "Philips Avent Natural Baby Bottle",
+    "category": "Feeding",
+    "description": "Anti-colic baby bottle with natural latch nipple",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 24
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "FDA approved materials"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": true,
+    "chemical_warnings": [
+      "BPA-free",
+      "polypropylene plastic"
+    ],
+    "doctor_consult_flags": [
+      "consult lactation consultant if breastfeeding alongside bottle feeding"
+    ],
+    "contraindications": []
+  },
+  {
+    "id": "P006",
+    "product_name": "Chicco Next2Me Magic Co-Sleeper",
+    "category": "Furniture",
+    "description": "Side-sleeping crib that attaches to parent bed",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 6
+    },
+    "weight_limit_kg": 9,
+    "safety_certifications": [
+      "EN 1130",
+      "CPSC compliant"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "formaldehyde-free"
+    ],
+    "doctor_consult_flags": [
+      "not suitable for infants with breathing difficulties",
+      "consult pediatrician for premature babies"
+    ],
+    "contraindications": [
+      "premature infants",
+      "infants with respiratory conditions"
+    ]
+  },
+  {
+    "id": "P007",
+    "product_name": "Infantino Flip 4-in-1 Baby Carrier",
+    "category": "Travel",
+    "description": "Convertible baby carrier for newborns and toddlers",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 36
+    },
+    "weight_limit_kg": 14.5,
+    "safety_certifications": [
+      "ASTM F2236"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [],
+    "doctor_consult_flags": [
+      "not recommended for infants with hip dysplasia without medical guidance",
+      "consult pediatrician for low birth weight infants"
+    ],
+    "contraindications": [
+      "hip dysplasia without medical clearance",
+      "neck or spinal conditions"
+    ]
+  },
+  {
+    "id": "P008",
+    "product_name": "Aveeno Baby Eczema Therapy Moisturizing Cream",
+    "category": "Skincare",
+    "description": "Colloidal oatmeal cream for eczema-prone baby skin",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 36
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "National Eczema Association accepted",
+      "dermatologist recommended"
+    ],
+    "allergen_warnings": [
+      "contains colloidal oatmeal",
+      "contains oat kernel flour"
+    ],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "steroid-free",
+      "fragrance-free"
+    ],
+    "doctor_consult_flags": [
+      "consult doctor before use if child has oat or gluten allergy",
+      "consult dermatologist for severe eczema"
+    ],
+    "contraindications": [
+      "oat allergy",
+      "gluten sensitivity in rare cases"
+    ]
+  },
+  {
+    "id": "P009",
+    "product_name": "VTech Baby Lil Critters Moosical Beads",
+    "category": "Toys",
+    "description": "Musical rattle toy with lights and sounds for infants",
+    "age_range": {
+      "min_months": 3,
+      "max_months": 36
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "EN71",
+      "ASTM F963"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "BPA-free"
+    ],
+    "doctor_consult_flags": [
+      "consult audiologist if child has hearing sensitivity"
+    ],
+    "contraindications": [
+      "photosensitive epilepsy due to flashing lights"
+    ]
+  },
+  {
+    "id": "P010",
+    "product_name": "Ergobaby Omni 360 Baby Carrier",
+    "category": "Travel",
+    "description": "All-position ergonomic baby carrier for newborn to toddler",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 48
+    },
+    "weight_limit_kg": 20,
+    "safety_certifications": [
+      "Hip-Healthy certified by International Hip Dysplasia Institute"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "OEKO-TEX certified fabric"
+    ],
+    "doctor_consult_flags": [
+      "consult pediatrician for infants with low muscle tone"
+    ],
+    "contraindications": [
+      "severe hip dysplasia",
+      "low muscle tone without medical guidance"
+    ]
+  },
+  {
+    "id": "P011",
+    "product_name": "Tommee Tippee Closer to Nature Pacifier",
+    "category": "Feeding",
+    "description": "Orthodontic soother for newborns",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 6
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "EN 1400",
+      "BPA-free certified"
+    ],
+    "allergen_warnings": [
+      "latex-free"
+    ],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "BPA-free",
+      "silicone nipple"
+    ],
+    "doctor_consult_flags": [
+      "consult lactation consultant if breastfeeding \u2014 may cause nipple confusion in early weeks"
+    ],
+    "contraindications": []
+  },
+  {
+    "id": "P012",
+    "product_name": "Skip Hop Explore and More Baby Walker",
+    "category": "Furniture",
+    "description": "Activity center and walker for pre-walking babies",
+    "age_range": {
+      "min_months": 6,
+      "max_months": 18
+    },
+    "weight_limit_kg": 13.6,
+    "safety_certifications": [
+      "ASTM F977"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "BPA-free"
+    ],
+    "doctor_consult_flags": [
+      "pediatric physiotherapists caution against walkers as they may delay independent walking",
+      "consult pediatrician before use"
+    ],
+    "contraindications": [
+      "not recommended by AAP \u2014 may delay motor development"
+    ]
+  },
+  {
+    "id": "P013",
+    "product_name": "Hasbro Play-Doh Starter Set",
+    "category": "Toys",
+    "description": "Classic modeling compound set for creative play",
+    "age_range": {
+      "min_months": 36,
+      "max_months": 96
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "ASTM F963",
+      "EN71"
+    ],
+    "allergen_warnings": [
+      "contains wheat",
+      "contains gluten",
+      "contains salt"
+    ],
+    "choking_hazard": true,
+    "small_parts": false,
+    "chemical_warnings": [
+      "non-toxic but not edible"
+    ],
+    "doctor_consult_flags": [
+      "not suitable for children with wheat or gluten allergy",
+      "supervise use \u2014 not for children who mouth objects"
+    ],
+    "contraindications": [
+      "wheat allergy",
+      "gluten intolerance",
+      "children who mouth objects"
+    ]
+  },
+  {
+    "id": "P014",
+    "product_name": "Joie i-Spin 360 Car Seat",
+    "category": "Travel",
+    "description": "360-degree rotating car seat for infants and toddlers",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 48
+    },
+    "weight_limit_kg": 18,
+    "safety_certifications": [
+      "ECE R129 i-Size",
+      "side impact tested"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "flame retardant free fabric"
+    ],
+    "doctor_consult_flags": [
+      "consult pediatrician for premature infants",
+      "rear-facing recommended until 15 months minimum"
+    ],
+    "contraindications": [
+      "premature infants under 2.5kg without medical clearance"
+    ]
+  },
+  {
+    "id": "P015",
+    "product_name": "Crayola My First Palm-Grip Crayons",
+    "category": "Toys",
+    "description": "Chunky crayons designed for toddler grip",
+    "age_range": {
+      "min_months": 24,
+      "max_months": 60
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "ASTM F963",
+      "AP non-toxic certified"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "non-toxic",
+      "paraffin wax based"
+    ],
+    "doctor_consult_flags": [],
+    "contraindications": [
+      "supervise use with children who mouth objects"
+    ]
+  },
+  {
+    "id": "P016",
+    "product_name": "Medela Swing Maxi Double Breast Pump",
+    "category": "Feeding",
+    "description": "Electric double breast pump for nursing mothers",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 12
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "FDA cleared",
+      "CE marked"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": true,
+    "chemical_warnings": [
+      "BPA-free"
+    ],
+    "doctor_consult_flags": [
+      "consult lactation consultant for proper sizing and use",
+      "consult doctor if experiencing pain during pumping"
+    ],
+    "contraindications": [
+      "mastitis \u2014 consult doctor before use",
+      "inverted nipples \u2014 consult lactation consultant"
+    ]
+  },
+  {
+    "id": "P017",
+    "product_name": "Nuby Garden Fresh Fruitsicle Frozen Pop Tray",
+    "category": "Feeding",
+    "description": "Silicone popsicle molds for homemade baby food",
+    "age_range": {
+      "min_months": 4,
+      "max_months": 24
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "FDA approved materials"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": true,
+    "chemical_warnings": [
+      "BPA-free",
+      "food-grade silicone"
+    ],
+    "doctor_consult_flags": [
+      "consult pediatrician before introducing solid foods \u2014 WHO recommends exclusive breastfeeding until 6 months"
+    ],
+    "contraindications": [
+      "not suitable before 4 months"
+    ]
+  },
+  {
+    "id": "P018",
+    "product_name": "Motorola VM64 Baby Monitor",
+    "category": "Safety",
+    "description": "WiFi video baby monitor with two-way audio",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 36
+    },
+    "weight_limit_kg": null,
+    "safety_certifications": [
+      "FCC certified",
+      "CE marked"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": true,
+    "chemical_warnings": [],
+    "doctor_consult_flags": [],
+    "contraindications": [
+      "keep camera and cables out of reach of child \u2014 strangulation risk from cables"
+    ]
+  },
+  {
+    "id": "P019",
+    "product_name": "Summer Infant Pop N Play Portable Playard",
+    "category": "Furniture",
+    "description": "Lightweight portable play yard for indoor and outdoor use",
+    "age_range": {
+      "min_months": 0,
+      "max_months": 24
+    },
+    "weight_limit_kg": 15,
+    "safety_certifications": [
+      "ASTM F406"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "UV protective fabric",
+      "lead-free"
+    ],
+    "doctor_consult_flags": [
+      "not suitable for unsupervised sleep"
+    ],
+    "contraindications": [
+      "not for overnight sleep",
+      "not for climbing children"
+    ]
+  },
+  {
+    "id": "P020",
+    "product_name": "Kinderkraft KRAFT Tricycle",
+    "category": "Toys",
+    "description": "Parent-steered tricycle that converts to independent ride",
+    "age_range": {
+      "min_months": 12,
+      "max_months": 60
+    },
+    "weight_limit_kg": 20,
+    "safety_certifications": [
+      "EN 71",
+      "CE certified"
+    ],
+    "allergen_warnings": [],
+    "choking_hazard": false,
+    "small_parts": false,
+    "chemical_warnings": [
+      "lead-free paint"
+    ],
+    "doctor_consult_flags": [
+      "helmet recommended at all times"
+    ],
+    "contraindications": [
+      "not suitable for children who cannot support their own head"
+    ]
+  }
+]
