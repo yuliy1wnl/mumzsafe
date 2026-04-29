@@ -5,6 +5,11 @@
 MumzSafe lets a parent describe their child (age, allergies, medical conditions) and ask whether a specific baby product is safe for them. The system returns a structured safety verdict with reasoning, a confidence score, and a doctor consultation flag when appropriate. Output is in both English and Arabic.
 
 ---
+## Demo
+
+[3-minute walkthrough →](https://www.loom.com/share/b012a03f850544c1a6521edfdf869222)
+
+---
 
 ## Setup and Run
 
